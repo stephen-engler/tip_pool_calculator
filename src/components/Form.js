@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import EmployeeInput from './EmployeeInput';
-import TotalTips from './TotalTips'
+import TotalTips from './TotalTips';
+import EmployeeTable from './EmployeeTable'
 
 const initalState = {
     totalTips: 0
@@ -22,6 +23,7 @@ class Form extends Component {
   render() {
     return <div>
             <TotalTips totalTips={this.state.totalTips} handleChangeFor={this.handleChangeFor}/>
+            <EmployeeTable />
             <EmployeeInput />
         </div>;
   }
