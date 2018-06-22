@@ -18,11 +18,19 @@ class EmployeeInput extends Component{
         }
     }
 
+    handleClick = () =>{
+        this.props.addEmployee(this.state)
+        this.setState({
+            initialState
+        })
+    }
+
     render(){
         return <div>
             <input type='text' value={this.state.employeeName} onChange={this.handleChangeFor('employeeName')}/>
             <input type='number' value={this.state.employeeHours} onChange={this.handleChangeFor('employeeHours')}/>
             <input type='number'value={this.state.employeePercent} onChange={this.handleChangeFor('employeePercent')}/>
+            <button onClick={this.handleClick}>Add</button>
         </div>;
     }
 }

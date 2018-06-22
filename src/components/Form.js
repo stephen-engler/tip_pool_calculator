@@ -4,7 +4,8 @@ import TotalTips from './TotalTips';
 import EmployeeTable from './EmployeeTable'
 
 const initalState = {
-    totalTips: 0
+    totalTips: 0,
+    employees: []
 }
 
 class Form extends Component {
@@ -20,11 +21,18 @@ class Form extends Component {
           })
       }
   }
+  addEmployee = (employee) =>{
+      this.setState({
+          ...this.state,
+          employees: [...this.state.employees, employee]
+      })
+  }
+
   render() {
     return <div>
             <TotalTips totalTips={this.state.totalTips} handleChangeFor={this.handleChangeFor}/>
             <EmployeeTable />
-            <EmployeeInput />
+            <EmployeeInput addEmployee={this.addEmployee}/>
         </div>;
   }
 }
