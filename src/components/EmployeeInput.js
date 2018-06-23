@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 
 const initialState = {
-    employeeName: '',
-    employeeHours: undefined,
-    employeePercent: 100,
+    name: '',
+    hours: undefined,
+    percent: 100,
+    amount: '',
 }
 
 class EmployeeInput extends Component{
@@ -27,9 +28,9 @@ class EmployeeInput extends Component{
 
     render(){
         return <div>
-            <input type='text' value={this.state.employeeName} onChange={this.handleChangeFor('employeeName')}/>
-            <input type='number' value={this.state.employeeHours} onChange={this.handleChangeFor('employeeHours')}/>
-            <input type='number'value={this.state.employeePercent} onChange={this.handleChangeFor('employeePercent')}/>
+            <input type='text' value={this.state.name} onChange={this.handleChangeFor('name')}/>
+            <input type='number' value={this.state.hours} onChange={this.handleChangeFor('hours')}/>
+            <input type='number'value={this.state.percent} onChange={this.handleChangeFor('percent')}/>
             <button onClick={this.handleClick}>Add</button>
         </div>;
     }

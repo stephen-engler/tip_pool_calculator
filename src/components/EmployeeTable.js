@@ -1,8 +1,36 @@
 import React from 'react';
 
 const EmployeeTable = (props)=>{
+    const renderTable=()=>{
+        let table = props.employees.map(employee=>{
+            return(<tr>
+                <td>{employee.name}</td>
+                <td>{employee.hours}</td>
+                <td>{employee.percent}</td>
+                <td>{employee.amount}</td>
+            </tr>)
+        })
+        return table;
+    }
     return(
-        <div>this is a table</div>
+        <div>
+            <table>
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        hours
+                    </th>
+                    <th>
+                        percent
+                    </th>
+                </thead>
+                <tbody>
+                    {renderTable()}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

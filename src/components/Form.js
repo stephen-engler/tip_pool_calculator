@@ -31,7 +31,7 @@ class Form extends Component {
   render() {
     return <div>
             <TotalTips totalTips={this.state.totalTips} handleChangeFor={this.handleChangeFor}/>
-            <EmployeeTable />
+            <EmployeeTable employees={this.state.employees}/>
             <EmployeeInput addEmployee={this.addEmployee}/>
         </div>;
   }
