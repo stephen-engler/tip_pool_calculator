@@ -3,7 +3,7 @@ import React from 'react';
 const EmployeeTable = (props)=>{
     const renderTable=()=>{
         let table = props.employees.map(employee=>{
-            return(<tr>
+            return(<tr key={employee.name}>
                 <td>{employee.name}</td>
                 <td>{employee.hours}</td>
                 <td>{employee.percent}</td>
