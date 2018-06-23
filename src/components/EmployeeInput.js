@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 const initialState = {
     name: '',
-    hours: undefined,
+    hours: '',
     percent: 100,
     amount: '',
 }
@@ -21,9 +21,9 @@ class EmployeeInput extends Component{
 
     handleClick = () =>{
         this.props.addEmployee(this.state)
-        this.setState({
+        this.setState(
             initialState
-        })
+        )
     }
 
     render(){
