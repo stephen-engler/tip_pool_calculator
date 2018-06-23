@@ -16,6 +16,7 @@ const EmployeeTable = (props)=>{
         <div>
             <table>
                 <thead>
+                <tr>
                     <th>
                         Name
                     </th>
@@ -25,6 +26,7 @@ const EmployeeTable = (props)=>{
                     <th>
                         percent
                     </th>
+                </tr>
                 </thead>
                 <tbody>
                     {renderTable()}
