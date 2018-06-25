@@ -35,17 +35,22 @@ class Form extends Component {
           return totalHours + parseInt(employee.hours)
       }, 0)
       
-      let payPerHour = totalTips/totalHours;
+      let payPerHour = this.state.totalTips/totalHours;
 
       this.setState({
           ...this.state,
           totalHours: totalHours,
           payPerHour: payPerHour
       })
-    //   let calculatedState = this.state;
-    //   let updatedEmployees = this.state.employees.map(employee=>{
-    //       return 
-    //   })
+      let calculatedState = this.state;
+      let updatedEmployees = this.state.employees.map(employee=>{
+          return {...employee, totalPay: employee.hours * payPerHour}
+      })
+
+      this.setState({
+          ...this.state,
+          employees: updatedEmployees
+      })
         console.log('state ', this.state)
   }
 
