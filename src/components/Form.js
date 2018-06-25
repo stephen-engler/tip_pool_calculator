@@ -19,7 +19,7 @@ class Form extends Component {
   handleChangeFor = (input) =>{
       return (event)=>{
           this.setState({
-              [input]: event.target.value
+              [input]: parseInt(event.target.value)
           })
       }
   }
@@ -32,14 +32,15 @@ class Form extends Component {
   }
   calculate = () =>{
       let totalHours = this.state.employees.reduce((totalHours, employee)=>{
-          return totalHours + employee.hours
+          return totalHours + parseInt(employee.hours)
       }, 0)
-
-      console.log('total hours ', totalHours)
+      
+      let payPerHour = totalTips/totalHours;
 
       this.setState({
           ...this.state,
-          totalHours: totalHours
+          totalHours: totalHours,
+          payPerHour: payPerHour
       })
     //   let calculatedState = this.state;
     //   let updatedEmployees = this.state.employees.map(employee=>{
