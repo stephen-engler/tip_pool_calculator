@@ -23,35 +23,32 @@ class Form extends Component {
           })
       }
   }
+  //adds employee to array
   addEmployee = (employee) =>{
       this.setState({
           ...this.state,
           employees: [...this.state.employees, employee]
       })
-      console.log('state ', this.state)
   }
+  //calculates tips for each employee based on total hours and total tips
   calculate = () =>{
+      //adds up all hours from employee array
       let totalHours = this.state.employees.reduce((totalHours, employee)=>{
           return totalHours + parseInt(employee.hours)
       }, 0)
-      
+      //divides total tips by hours to get the pay per hour
       let payPerHour = this.state.totalTips/totalHours;
-
+      //updates the employee array with each employees pay amount
+      let updatedEmployees = this.state.employees.map(employee=>{
+          return {...employee, amount: employee.hours * payPerHour}
+      })
+      //saves values to state
       this.setState({
           ...this.state,
+          employees: updatedEmployees,
           totalHours: totalHours,
           payPerHour: payPerHour
       })
-      let calculatedState = this.state;
-      let updatedEmployees = this.state.employees.map(employee=>{
-          return {...employee, totalPay: employee.hours * payPerHour}
-      })
-
-      this.setState({
-          ...this.state,
-          employees: updatedEmployees
-      })
-        console.log('state ', this.state)
   }
 
   render() {
